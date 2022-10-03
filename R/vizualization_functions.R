@@ -8,6 +8,8 @@
 #' @export
 #'
 #' @examples
+#' coolor_array <- '["845a6d","3e1929","6e75a8","8d91c7","b0daf1"]'
+#' CreateRPalette(coolor_array)
 CreateRPalette <- function(array_string, n = 5){
   # Take in a Python (?) array (as a string) from Coolors to use in R.
 
@@ -32,6 +34,8 @@ CreateRPalette <- function(array_string, n = 5){
 #' @export
 #'
 #' @examples
+#' color_vec <- c("#845a6d", "#3e1929", "#6e75a8", "#8d91c7")
+#' ShowColors(color_vec)
 ShowColors <- function(palette){
   p <- ggplot2::ggplot() +
     geom_bar(aes(x = 1, fill = as.factor(1:length(palette)))) +

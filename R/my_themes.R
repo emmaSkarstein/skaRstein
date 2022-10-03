@@ -3,13 +3,14 @@
 
 #' My basic theme
 #'
-#' @param base_size
-#' @param base_family
+#' @param base_size Base font size
+#' @param base_family Base font family
 #'
 #' @return a basic ggplot theme with my preferred settings
 #' @export
 #'
 #' @examples
+#' p <- ggplot(mtcars, aes(wt, mpg)) + geom_point() + my_basic_theme()
 my_basic_theme <- function(base_size = 12,
                            base_family = 'sans'){
   return_theme <- ggplot2::theme(
