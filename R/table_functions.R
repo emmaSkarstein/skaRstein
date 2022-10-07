@@ -4,11 +4,12 @@
 #'
 #' @param inla.object INLA (measurement error) model
 #'
-#' @return A table with the posterior means and standard errors (and quantiles)
-#  of all estimated parameters in the model whose name contains "beta" or "alpha".
-#' @export
+#' @return A table with the posterior means and standard errors (and quantiles) of all estimated parameters in the model whose name contains "beta" or "alpha".
 #'
+#' @import INLA
+#' @export
 #' @examples
+#' return_estimates(skaRstein::model_simulation)
 return_estimates <- function(inla.object){
   fixed <- data.frame(inla.object$summary.fixed)
   fixed <- fixed[, names(fixed) != "kld"]
@@ -33,6 +34,7 @@ return_estimates <- function(inla.object){
 #' @export
 #'
 #' @examples
+#' prepare_table(skaRstein::model_simulation)
 prepare_table <- function(inla.object){
   # Extract estimates from inla.object
   estimates <- return_estimates(inla.object)
@@ -68,8 +70,11 @@ prepare_table <- function(inla.object){
 #' @export
 #'
 #' @examples
+#' make_latex_table_body(skaRstein::model_simulation)
 make_latex_table_body <- function(inla.object){
-  clean_data <- prepare_table(inla.object) |>
-    glue::glue_data("{rownames(.)} & {mean} & {sd} \\\\")
-  return(clean_data)
+  clean_data <- prepare_table(inla.object)
+  clean_data$variable <- rownames(clean_data)
+  table_body <- clean_data |>
+    glue::glue_data("{variable} & {mean} & {sd} \\\\")
+  return(table_body)
 }

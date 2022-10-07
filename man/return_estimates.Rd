@@ -10,8 +10,11 @@ return_estimates(inla.object)
 \item{inla.object}{INLA (measurement error) model}
 }
 \value{
-A table with the posterior means and standard errors (and quantiles)
+A table with the posterior means and standard errors (and quantiles) of all estimated parameters in the model whose name contains "beta" or "alpha".
 }
 \description{
 Return estimates of relevant coefficients from INLA object
+}
+\examples{
+
 }
