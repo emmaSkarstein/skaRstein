@@ -15,3 +15,6 @@ A deep cleaned version of the INLA model summary. Rows are given names from the 
 \description{
 Prepare INLA summary as a clean table
 }
+\examples{
+prepare_table(skaRstein::model_simulation)
+}

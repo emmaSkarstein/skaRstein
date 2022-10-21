@@ -16,5 +16,5 @@ A table with the posterior means and standard errors (and quantiles) of all esti
 Return estimates of relevant coefficients from INLA object
 }
 \examples{
-
+return_estimates(skaRstein::model_simulation)
 }

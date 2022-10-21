@@ -23,7 +23,12 @@ return_estimates <- function(inla.object){
   # Extract all coefficients that contain "alpha" (the coefficients of the imputation model)
   alphas <- dplyr::filter(fixed, grepl("alpha", coefficient.name))
 
-  return(rbind(alphas, betas))
+  # All coefficients
+  all_coefs <- dplyr::bind_rows("Imputation model" = alphas,
+                                "Model of interest" = betas,
+                                .id = "model")
+
+  return(all_coefs)
 }
 
 #' Prepare INLA summary as a clean table

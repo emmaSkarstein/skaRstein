@@ -15,3 +15,6 @@ A cleaned INLA parameter summary, with "&" and "\\\\" inserted where necessary t
 \description{
 Make the body of a Latex table from INLA object
 }
+\examples{
+make_latex_table_body(skaRstein::model_simulation)
+}
